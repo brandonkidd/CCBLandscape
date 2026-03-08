@@ -7,19 +7,22 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        // CCB Landscape brand colors (matching Framer design)
-        primary: '#6DBBDB',      // Logo blue
-        'dark-blue': '#1A4D7A',  // Headers
-        secondary: '#2874A6',    // Depth
-        'light-blue': '#A8D5E2', // Accents
-        orange: '#E67E22',       // CTAs
-        'dark-orange': '#D35400',// Hover states
-        charcoal: '#5A5A5A',     // Body text
-        'light-gray': '#F2F2F2', // Backgrounds
-      },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        // Exact fonts from Framer template
+        sans: ['var(--font-figtree)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        figtree: ['var(--font-figtree)'],
+        inter: ['var(--font-inter)'],
+      },
+      colors: {
+        // Clean professional colors matching Framer
+        primary: {
+          DEFAULT: '#1a1b1d', // Dark text
+          light: '#6b7280', // Gray text
+        },
+        accent: {
+          green: '#059669', // Green CTA button
+          blue: '#3b82f6', // Blue accents
+        },
       },
     },
   },
