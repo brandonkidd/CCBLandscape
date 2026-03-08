@@ -1,68 +1,87 @@
 import Link from 'next/link'
-import { company, services, cities } from '@/lib/data'
+import { company } from '@/lib/data'
 
 export default function Footer() {
-  const primaryCities = cities.filter(c => c.region === "North Orange County").slice(0, 7);
-  
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="container-custom py-12">
+    <footer className="bg-dark-blue text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          
           {/* Company Info */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">{company.name}</h3>
-            <p className="text-sm mb-4">{company.tagline}</p>
-            <p className="text-sm">{company.address.street}</p>
-            <p className="text-sm">{company.address.city}, {company.address.state} {company.address.zip}</p>
-            <p className="text-sm mt-2">
-              <a href={`tel:${company.phone}`} className="hover:text-white">{company.phone}</a>
+            <h3 className="text-xl font-bold text-white mb-4">{company.name}</h3>
+            <p className="text-light-blue mb-4">
+              Owner-operated commercial landscape maintenance serving Orange County since 2012.
             </p>
+            <div className="flex flex-col space-y-2">
+              <a href={`tel:${company.phone}`} className="text-white hover:text-orange transition-colors">
+                {company.phone}
+              </a>
+              <a href={`mailto:${company.email}`} className="text-white hover:text-orange transition-colors">
+                {company.email}
+              </a>
+            </div>
           </div>
-          
+
           {/* Services */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm">
-              {services.slice(0, 5).map(service => (
-                <li key={service.slug}>
-                  <Link href={`/services/${service.slug}`} className="hover:text-white">
-                    {service.shortName}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-lg font-semibold text-white mb-4">Services</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/services/commercial-landscape-maintenance" className="text-light-blue hover:text-orange transition-colors">
+                  Commercial Maintenance
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/hoa-landscape-maintenance" className="text-light-blue hover:text-orange transition-colors">
+                  HOA Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/water-management-irrigation" className="text-light-blue hover:text-orange transition-colors">
+                  Water Management
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/tree-services-arborist" className="text-light-blue hover:text-orange transition-colors">
+                  Tree Services
+                </Link>
+              </li>
             </ul>
           </div>
-          
-          {/* Locations */}
+
+          {/* Service Area */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Service Areas</h4>
-            <ul className="space-y-2 text-sm">
-              {primaryCities.map(city => (
-                <li key={city.slug}>
-                  <Link href={`/locations/${city.slug}`} className="hover:text-white">
-                    {city.name}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-lg font-semibold text-white mb-4">Service Area</h4>
+            <ul className="space-y-2 text-light-blue">
+              <li>Yorba Linda</li>
+              <li>Anaheim Hills</li>
+              <li>Fullerton</li>
+              <li>Brea</li>
+              <li>Placentia</li>
+              <li>Villa Park</li>
+              <li>Orange County</li>
             </ul>
           </div>
-          
-          {/* Company Links */}
+
+          {/* Credentials */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/about" className="hover:text-white">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-              <li><Link href="/services" className="hover:text-white">All Services</Link></li>
-              <li><Link href="/locations" className="hover:text-white">All Locations</Link></li>
+            <h4 className="text-lg font-semibold text-white mb-4">Credentials</h4>
+            <ul className="space-y-2 text-light-blue text-sm">
+              <li>CA License #981154</li>
+              <li>BuildZoom Score: 99</li>
+              <li>BBB A+ Rating</li>
+              <li>$1M Insurance</li>
+              <li>Qualified Applicator</li>
             </ul>
           </div>
         </div>
-        
-        <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+
+        {/* Bottom Bar */}
+        <div className="border-t border-secondary mt-8 pt-8 text-center text-light-blue text-sm">
           <p>&copy; {new Date().getFullYear()} {company.name}. All rights reserved.</p>
-          <p className="mt-2">License #{company.licenses[0]} | BBB Rating: {company.bbbRating}</p>
+          <p className="mt-2">
+            Licensed Landscape Contractor | Serving Orange County Since 2012
+          </p>
         </div>
       </div>
     </footer>
