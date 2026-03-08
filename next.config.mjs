@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // No static export - using Vercel serverless for hybrid with Framer
+  output: 'export',
   images: {
     unoptimized: true
   }
