@@ -1,7 +1,8 @@
 import { Inter, Figtree } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Navigation from '@/components/framer/Navigation'
+import Footer from '@/components/framer/Footer'
+import { company } from '@/lib/data'
 
 // Exact fonts from Framer template
 const inter = Inter({
@@ -27,9 +28,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${figtree.variable}`}>
       <body className="font-figtree antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <Navigation company={company} />
+        <main className="pt-20">{children}</main>
+        <Footer company={company} />
       </body>
     </html>
   )
