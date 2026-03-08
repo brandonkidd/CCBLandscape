@@ -3,85 +3,106 @@ import { company } from '@/lib/data'
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-blue text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gray-900 text-gray-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-4">{company.name}</h3>
-            <p className="text-light-blue mb-4">
-              Owner-operated commercial landscape maintenance serving Orange County since 2012.
+            <h3 className="text-white font-semibold mb-4">{company.name}</h3>
+            <p className="text-sm text-gray-400 mb-4">
+              Orange County's owner-operated commercial landscape partner
             </p>
-            <div className="flex flex-col space-y-2">
-              <a href={`tel:${company.phone}`} className="text-white hover:text-orange transition-colors">
-                {company.phone}
-              </a>
-              <a href={`mailto:${company.email}`} className="text-white hover:text-orange transition-colors">
-                {company.email}
-              </a>
-            </div>
+            <p className="text-sm text-gray-400">
+              17071 Imperial Highway, Unit A4<br />
+              Yorba Linda, CA 92886
+            </p>
+            <p className="text-sm text-gray-400 mt-2">
+              {company.phone}
+            </p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Services</h4>
-            <ul className="space-y-2">
+            <h4 className="text-white font-semibold mb-4">Services</h4>
+            <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/services/commercial-landscape-maintenance" className="text-light-blue hover:text-orange transition-colors">
-                  Commercial Maintenance
+                <Link href="/services/commercial-landscape-maintenance" className="text-gray-400 hover:text-white transition-colors">
+                  Landscape Maintenance
                 </Link>
               </li>
               <li>
-                <Link href="/services/hoa-landscape-maintenance" className="text-light-blue hover:text-orange transition-colors">
+                <Link href="/services/hoa-landscape-maintenance" className="text-gray-400 hover:text-white transition-colors">
                   HOA Services
                 </Link>
               </li>
               <li>
-                <Link href="/services/water-management-irrigation" className="text-light-blue hover:text-orange transition-colors">
-                  Water Management
+                <Link href="/services/water-management-irrigation" className="text-gray-400 hover:text-white transition-colors">
+                  Irrigation
                 </Link>
               </li>
               <li>
-                <Link href="/services/tree-services-arborist" className="text-light-blue hover:text-orange transition-colors">
-                  Tree Services
+                <Link href="/services/tree-services-arborist" className="text-gray-400 hover:text-white transition-colors">
+                  Tree Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-gray-400 hover:text-white transition-colors">
+                  Renovations
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Service Area */}
+          {/* Service Areas */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Service Area</h4>
-            <ul className="space-y-2 text-light-blue">
+            <h4 className="text-white font-semibold mb-4">Service Areas</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
               <li>Yorba Linda</li>
               <li>Anaheim Hills</li>
               <li>Fullerton</li>
               <li>Brea</li>
               <li>Placentia</li>
               <li>Villa Park</li>
-              <li>Orange County</li>
+              <li>Anaheim</li>
             </ul>
           </div>
 
-          {/* Credentials */}
+          {/* Company */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Credentials</h4>
-            <ul className="space-y-2 text-light-blue text-sm">
-              <li>CA License #981154</li>
-              <li>BuildZoom Score: 99</li>
-              <li>BBB A+ Rating</li>
-              <li>$1M Insurance</li>
-              <li>Qualified Applicator</li>
+            <h4 className="text-white font-semibold mb-4">Company</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-gray-400 hover:text-white transition-colors">
+                  All Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations" className="text-gray-400 hover:text-white transition-colors">
+                  All Locations
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-secondary mt-8 pt-8 text-center text-light-blue text-sm">
-          <p>&copy; {new Date().getFullYear()} {company.name}. All rights reserved.</p>
-          <p className="mt-2">
-            Licensed Landscape Contractor | Serving Orange County Since 2012
-          </p>
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© {new Date().getFullYear()} {company.name}. All rights reserved.</p>
+            <p className="mt-2 md:mt-0">
+              License #981154 | BBB Rating: A+
+            </p>
+          </div>
         </div>
       </div>
     </footer>
