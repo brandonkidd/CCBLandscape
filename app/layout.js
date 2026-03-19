@@ -1,23 +1,8 @@
-import { Inter, Figtree } from 'next/font/google'
 import './globals.css'
-import Navigation from '@/components/framer/Navigation'
-import Footer from '@/components/framer/Footer'
+import PremiumNav from '@/components/premium/PremiumNav'
+import PremiumFooter from '@/components/premium/PremiumFooter'
+import StickyCtaBar from '@/components/premium/StickyCtaBar'
 import { company } from '@/lib/data'
-
-// Exact fonts from Framer template
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const figtree = Figtree({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-figtree',
-  display: 'swap',
-})
 
 export const metadata = {
   title: 'CCB Landscape Services | Commercial Landscape Maintenance Orange County',
@@ -26,11 +11,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${figtree.variable}`}>
-      <body className="font-figtree antialiased">
-        <Navigation company={company} />
-        <main className="pt-20">{children}</main>
-        <Footer company={company} />
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet" />
+      </head>
+      <body className="font-sans antialiased bg-white text-gray-900">
+        <PremiumNav company={company} />
+        <main>{children}</main>
+        <PremiumFooter company={company} />
+        <StickyCtaBar phone={company.phone} />
       </body>
     </html>
   )

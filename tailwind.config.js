@@ -8,19 +8,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-figtree)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        figtree: ['var(--font-figtree)'],
-        inter: ['var(--font-inter)'],
+        sans: ['Inter', 'Figtree', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        figtree: ['Figtree', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       colors: {
-        // CCB Brand Colors
         primary: {
-          DEFAULT: '#6DBBDB', // Logo blue
+          DEFAULT: '#6DBBDB',
           dark: '#2874A6',
           light: '#A8D5E2',
         },
         accent: {
-          DEFAULT: '#059669', // Green
+          DEFAULT: '#059669',
           dark: '#047857',
         },
         charcoal: '#5A5A5A',

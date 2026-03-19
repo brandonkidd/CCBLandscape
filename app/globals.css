@@ -2,35 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Framer-inspired design system */
 @layer base {
   :root {
-    --font-body: var(--font-figtree), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-heading: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    
-    /* Brand colors */
+    --font-body: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --color-primary: #6DBBDB;
     --color-primary-dark: #2874A6;
     --color-accent: #059669;
   }
 
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: var(--font-body);
     color: rgb(26, 27, 29);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     color: rgb(26, 27, 29);
-    line-height: 1.2;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: rgba(109, 187, 219, 0.3);
+    color: inherit;
   }
 }
 
-/* Utility classes used throughout the site */
 @layer components {
   .container-custom {
     max-width: 1280px;
@@ -60,13 +69,14 @@
     color: white;
     font-weight: 600;
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
+    border-radius: 0.75rem;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-primary:hover {
     background-color: var(--color-primary-dark);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px -10px rgba(109, 187, 219, 0.4);
   }
 
   .btn-secondary {
@@ -75,8 +85,8 @@
     color: var(--color-primary-dark);
     font-weight: 600;
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
+    border-radius: 0.75rem;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     border: 2px solid white;
   }
 
@@ -93,11 +103,39 @@
   .prose p {
     margin-bottom: 1.25rem;
   }
+
+  /* Gradient text utility */
+  .gradient-text {
+    background: linear-gradient(135deg, #6DBBDB, #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+  }
 }
 
-/* Smooth transitions */
 @layer utilities {
   .transition-base {
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Delay animation utility */
+  .delay-1000 {
+    animation-delay: 1000ms;
   }
 }
